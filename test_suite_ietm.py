@@ -22,46 +22,77 @@ class TestPMI():
         browser.find_element(By.XPATH, "/html/body/div[1]/div[1]/main/div/div/div/div/div/header/div/a/span/i").click()
         time.sleep(3)
 
+    @pytest.mark.pmi
     def test_TC85(self, browser):
+    link = "http://localhost:8082/"
 
 
+    @pytest.mark.pmi
     def test_TC86(self, browser):
+    link = "http://localhost:8082/"
 
 
+    @pytest.mark.pmi
     def test_TC87(self, browser):
+    link = "http://localhost:8082/"
 
 
+    @pytest.mark.pmi
     def test_TC88(self, browser):
+    link = "http://localhost:8082/"
 
 
+    @pytest.mark.pmi
     def test_TC89(self, browser):
+    link = "http://localhost:8082/"
 
 
+    @pytest.mark.pmi
     def test_TC90(self, browser):
+    link = "http://localhost:8082/"
 
 
+    @pytest.mark.pmi
     def test_TC91(self, browser):
+    link = "http://localhost:8082/"
 
 
+    @pytest.mark.pmi
     def test_TC92(self, browser):
+    link = "http://localhost:8082/"
 
 
+    @pytest.mark.pmi
     def test_TC93(self, browser):
+    link = "http://localhost:8082/"
 
 
+    @pytest.mark.pmi
     def test_TC95(self, browser):
+    link = "http://localhost:8082/"
 
 
+    @pytest.mark.pmi
     def test_TC96(self, browser):
+    link = "http://localhost:8082/"
 
 
+    @pytest.mark.pmi
     def test_TC102(self, browser):
+    link = "http://localhost:8082/"
 
 
+    @pytest.mark.pmi
     def test_TC103(self, browser):
+    link = "http://localhost:8082/"
 
 
+    @pytest.mark.pmi
     def test_TC104(self, browser):
+    link = "http://localhost:8082/"
 
 
+    @pytest.mark.pmi
     def test_TC105(self, browser):
+    link = "http://localhost:8082/"
+    
