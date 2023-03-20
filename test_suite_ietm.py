@@ -95,4 +95,3 @@ class TestPMI():
     @pytest.mark.pmi
     def test_TC105(self, browser):
     link = "http://localhost:8082/"
-    
