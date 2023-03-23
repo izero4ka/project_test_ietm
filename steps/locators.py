@@ -44,4 +44,3 @@ class ErdInformationLocators():
 class ConfigurationSelectionLocators():
     FOUR_FOUR = (By.CSS_SELECTOR, "div.col-md-3:nth-child(1)")
     SIX_SIX = (By.CSS_SELECTOR, "div.col-md-3:nth-child(2)")
-    
