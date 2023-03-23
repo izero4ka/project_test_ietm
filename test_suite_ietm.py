@@ -1,7 +1,19 @@
 import pytest
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-import time
+from .steps.viewer_structure_erd import
+from .steps.search_engine import
+from .steps.viewer_descriptive_md import
+from .steps.viewer_procedural_md import
+from .steps.viewer_electronic_catalogs_lists_md import
+from .steps.viewer_troubleshooting_procedures_md import
+from .steps.viewer_consumption_rates_spare_parts_materials_md import
+from .steps.viewer_maintenance_regulations_md import
+from .steps.viewer_electrical_installation_md import
+from .steps.localization_failed_element import
+from .steps.viewer_instructions_crew_md import
+from .steps.diagnostics_failure import
+from .steps.viewer_process_md_selected_product_configuration import
+from .steps.display_identification_part_process_md import
+from .steps.viewer_process_md_interactive_scenario_ietm import
 
 
 class TestPMI():
@@ -11,16 +23,6 @@ class TestPMI():
         driver = webdriver.Chrome()
         yield driver
         driver.quit()
-
-    def test_link_and_button(self, browser):
-        url = "http://localhost:8082/"
-        time.sleep(3)
-        browser.get(url)
-        browser.find_element(By.XPATH,
-                             "/html/body/div[1]/div/main/div/div/div/div[1]/div[2]/div/div[2]/div[2]/a/span/span").click()
-        time.sleep(3)
-        browser.find_element(By.XPATH, "/html/body/div[1]/div[1]/main/div/div/div/div/div/header/div/a/span/i").click()
-        time.sleep(3)
 
     @pytest.mark.pmi
     def test_TC85(self, browser):
