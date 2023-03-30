@@ -23,8 +23,18 @@ class ChoisePublicationLocators():
 class MainLocators():
     BACK_BLUE = (By.CSS_SELECTOR, ".mdi-arrow-left") # Кнопка синяя назад
     PROPERTIES_MD = (By.CSS_SELECTOR, ".mdi-information") # Кнопка свойства МД
+    PRESENT_VIDEO = (By.CSS_SELECTOR, "div.multimedia:nth-child(4)>video:nth-child(1)") # Видео есть в КОЛЁСА И ШИНЫ
     PLAY_VIDEO = (By.CSS_SELECTOR, "div.multimedia:nth-child(4)") # Кнопка старта видео
-
+    CLOSE_PROPERTIES_MD = (By.CSS_SELECTOR, "button.v-btn:nth-child(2)") # Кнопка ЗАКРЫТЬ
+    VERBATIMTEXT_3D = (By.CSS_SELECTOR, ".content > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > p:nth-child(4)")
+    VERBATIMTEXT_310533 = (By.CSS_SELECTOR, ".content > div:nth-child(2) > div:nth-child(1) > div:nth-child(3) > p:nth-child(3)")
+    KOLESO_MODEL = (By.CSS_SELECTOR, "#x3dom-1680193823451-canvas") # 3d колеса
+    SPISOK = (By.CSS_SELECTOR, "table.list > tbody:nth-child(1) > tr:nth-child(1) > td:nth-child(1)") # Список
+    HIGHLIGHTING_COLOR = (By.CSS_SELECTOR, "table.list > tbody:nth-child(1) > tr:nth-child(2) > td:nth-child(2) > p:nth-child(1) > a:nth-child(1)") # Выделение цветом
+class Table():
+    TABLE_BORDERS = (By.CSS_SELECTOR, "button.v-btn:nth-child(3)")  # Границы таблицы
+    NUMBER_NAME_BORDERS = (By.CSS_SELECTOR, ".tableCaption") # Номер и наименование таблицы
+    CONTENT_BORDERS = (By.CSS_SELECTOR, "p.tablepara:nth-child(2)") # Содержимое ячееки таблицы(колеса) КАМА-1260-1
 
 class ErdInformationLocators():
     PUBLICATIONS = (By.CSS_SELECTOR,
