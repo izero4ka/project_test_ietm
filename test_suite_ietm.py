@@ -1,5 +1,5 @@
-import pytest
-from .steps.viewer_structure_erd import
+# import pytest
+# from .steps.viewer_structure_erd import
 # from .steps.search_engine import
 # from .steps.viewer_descriptive_md import
 # from .steps.viewer_procedural_md import
@@ -15,22 +15,22 @@ from .steps.viewer_structure_erd import
 # from .steps.display_identification_part_process_md import
 # from .steps.viewer_process_md_interactive_scenario_ietm import
 
-class TestPMI():
-
-    @pytest.fixture(scope="function", autouse=True)
-    def setup(self, browser):
-        link = "http://localhost:8082/"
-        login_page = LoginPage(browser, link)
-        login_page.open()
-        login_page.go_to_login_page()
-        email = str(time.time()) + "@fakemail.org"
-        password = "128mb256kb512gb"
-        login_page.register_new_user(email, password)
-        login_page.should_be_authorized_user()
-
-    @pytest.mark.pmi
-    def test_TC85(self, browser):
-        link = "http://localhost:8082/"
+# class TestPMI():
+#
+#     @pytest.fixture(scope="function", autouse=True)
+#     def setup(self, browser):
+#         link = "http://localhost:8082/"
+#         login_page = LoginPage(browser, link)
+#         login_page.open()
+#         login_page.go_to_login_page()
+#         email = str(time.time()) + "@fakemail.org"
+#         password = "128mb256kb512gb"
+#         login_page.register_new_user(email, password)
+#         login_page.should_be_authorized_user()
+#
+#     @pytest.mark.pmi
+#     def test_TC85(self, browser):
+#         link = "http://localhost:8082/"
 
     # @pytest.mark.pmi
     # def test_TC86(self, browser):
