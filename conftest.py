@@ -1,10 +1,10 @@
 import pytest
 
 from selenium import webdriver
-
+from helper.browser import Browser
 from selenium.webdriver.chrome.options import Options
 
-from helper.browser import Browser
+
 
 
 def pytest_addoption(

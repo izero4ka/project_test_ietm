@@ -5,4 +5,6 @@ from helper.browser import Browser
 
 
 class BasePage(Browser):
-    pass
+
+    def back_btn(self):
+        return self.browser.find_element(By.CSS_SELECTOR, "div.v-toolbar__content>a")

@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from pages.base_page import BasePage
-from pages.set_info_page import SetInfoPage
+from pages.view_package_info_page import ViewPackageInfoPage
 
 
 class MainPage(BasePage):
@@ -15,6 +15,7 @@ class MainPage(BasePage):
         # Сведения о комплекте ЭРД
         return self.browser.find_element(By.CSS_SELECTOR, ".mr-10")
 
-    def click_on_set_info_btn(self) -> SetInfoPage:
+    def click_on_set_info_btn(self) -> ViewPackageInfoPage:
         self.set_info_btn().click()
-        return SetInfoPage()
+        return ViewPackageInfoPage()
+
