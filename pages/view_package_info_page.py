@@ -7,20 +7,33 @@ class ViewPackageInfoPage(BasePage):
     def publish_data_count_text(self):
         return self.browser.find_element(By.XPATH, "//td[text()='Публикаций']/following-sibling::*")
 
-    def model_count_test(self):
+    def model_count_text(self):
         return self.browser.find_element(By.XPATH, "//td[text()='Модулей данных']/following-sibling::*")
 
-    def click_on_back_btn(self):
-        from pages.main_page import MainPage
-        self.back_btn().click()
-        return MainPage()
+    def multimedia_objects_count_text(self):
+        return self.browser.find_element(By.XPATH, "//td[text()='Иллюстраций и мультимедиа объектов']/following-sibling::*")
 
-    def check_table_data(self, publish_data_count: str, model_count: str):
-        publish_count = self.publish_data_count_text().text
-        assert publish_count == publish_data_count,\
-            f'Неверные данные в кол. публикаций, expected count: {publish_data_count}' \
-            f' actual count: {publish_count}'
-        assert self.model_count_test().text == model_count, f'Неверные данные в кол. модулей данных'
+    def developer_id_text(self):
+        return self.browser.find_element(By.XPATH, "//td[text()='Разработчик']/following-sibling::*")
+
+    def provider_name_text(self):
+        return self.browser.find_element(By.XPATH, "//td[text()='Поставщик']/following-sibling::*")
+
+    def kit_info_text(self):
+        return self.browser.find_element(By.XPATH, "//td[text()='Комплект содержит сведения']/following-sibling::*")
+
+    def system_version_text(self):
+        return self.browser.find_element(By.XPATH, "//td[text()='Версия ЭСО']/following-sibling::*")
+
+    def check_table_data(self, publish_data_count, model_count, multimedia_objects_count, developer_id,
+                         provider_name, kit_info, system_version):
+        self.objects_should_be_equal(publish_data_count, self.publish_data_count_text().text)
+        self.objects_should_be_equal(self.model_count_text().text, model_count)
+        self.objects_should_be_equal(self.multimedia_objects_count_text().text, multimedia_objects_count)
+        self.objects_should_be_equal(developer_id, self.developer_id_text().text)
+        self.objects_should_be_equal(self.provider_name_text().text, provider_name)
+        self.objects_should_be_equal(self.kit_info_text().text, kit_info)
+        self.objects_should_be_equal(self.system_version_text().text, system_version)
 
     # def MD_data(self):
     #     return self.browser.find_element(By.XPATH, "//td[text()='Модулей данных']/following-sibling::*")

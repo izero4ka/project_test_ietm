@@ -8,3 +8,8 @@ class BasePage(Browser):
 
     def back_btn(self):
         return self.browser.find_element(By.CSS_SELECTOR, "div.v-toolbar__content>a")
+
+    def click_on_back_btn(self):
+        from pages.main_page import MainPage
+        self.back_btn().click()
+        return MainPage()

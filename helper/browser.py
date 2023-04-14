@@ -15,3 +15,7 @@ class Browser:
 
     def get_url(self):
         return self.browser.current_url
+
+    def objects_should_be_equal(self, first_object, second_object):
+        assert first_object == second_object, f'Объект {first_object} должен ровняться объекту {second_object}'
+        return self
