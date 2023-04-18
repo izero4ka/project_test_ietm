@@ -13,3 +13,7 @@ class BasePage(Browser):
         from pages.main_page import MainPage
         self.back_btn().click()
         return MainPage()
+
+    @staticmethod
+    def text_should_be(element, expected_text):
+        assert element.text == expected_text, f'Неверный текст элемента'

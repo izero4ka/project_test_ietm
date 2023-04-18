@@ -34,9 +34,3 @@ class ViewPackageInfoPage(BasePage):
         self.objects_should_be_equal(self.provider_name_text().text, provider_name)
         self.objects_should_be_equal(self.kit_info_text().text, kit_info)
         self.objects_should_be_equal(self.system_version_text().text, system_version)
-
-    # def MD_data(self):
-    #     return self.browser.find_element(By.XPATH, "//td[text()='Модулей данных']/following-sibling::*")
-    #
-    # def check_MD_data(self, MD_data: str):
-    #     assert self.MD_data().text == MD_data, f'Неверные данные в кол. МД'
