@@ -8,7 +8,6 @@ def page(browser):
 
 
 class TestStructureERD:
-    # publish_data_count = 4
 
     def test_check_set_info_in_table(self, page):
         main_page = page.open_main_page()
@@ -28,15 +27,53 @@ class TestStructureERD:
         main_page = config_page.click_on_back_btn()
         public_view_page = main_page.click_on_publish_menu_item()
         manual_page = public_view_page.click_on_manual_ietp1()
+        manual_page.open_tabs()
+        manual_page.check_inner_text('4х4')
+
+    def test_check_configurations_select_6x6(self, page):
+        main_page = page.open_main_page()
+        config_page = main_page.click_on_configuration_btn()
+        config_page.choose_config(config_type='6x6')
+        main_page = config_page.click_on_back_btn()
+        public_view_page = main_page.click_on_publish_menu_item()
+        manual_page = public_view_page.click_on_manual_ietp1()
+        manual_page.open_tabs()
+        manual_page.check_inner_text('6х6')
+
+    def test_check_configurations_select_4x4_and_6x6(self, page):
+        main_page = page.open_main_page()
+        config_page = main_page.click_on_configuration_btn()
+        config_page.choose_config(config_type='4x4')
+        config_page.choose_config(config_type='6x6')
+        main_page = config_page.click_on_back_btn()
+        public_view_page = main_page.click_on_publish_menu_item()
+        manual_page = public_view_page.click_on_manual_ietp1()
+        manual_page.open_tabs()
+        manual_page.check_inner_text_for_both_config()
+
+    def test_check_configurations_not_selected(self, page):
+        main_page = page.open_main_page()
+        public_view_page = main_page.click_on_publish_menu_item()
+        manual_page = public_view_page.click_on_manual_ietp1()
+        manual_page.open_tabs()
+        manual_page.check_inner_text_for_both_config()
 
 
-    # для 4на4
+    def test_search_view_pm_list(self, page):
+        main_page = page.open_main_page()
+        public_view_page = main_page.click_on_publish_menu_item()
+        public_view_page.search(search_text="двигатель")
+        public_view_page.manual_etpa2().is_displayed()
+        manual_page = public_view_page.click_on_manual_etpa2()
+        manual_page.text_should_be(main_page.title(), expected_text='URALM-SFX44-ETPA2-00')
 
-    # def check_configurations_select_6x6(self, page):
-    # для 6на6
 
-    # def check_configurations_select_4x4_6x6(self, page):
-    # когда выбраны 4на4 и 6на6
-
-    # def check_configurations_not_select(self, page):
-    # когда не выбрана ни одна
+#
+#     def check_configurations_select_6x6(self, page):
+#     для 6на6
+#
+#     def check_configurations_select_4x4_6x6(self, page):
+#     когда выбраны 4на4 и 6на6
+#
+#     def check_configurations_not_select(self, page):
+#     когда не выбрана ни одна
