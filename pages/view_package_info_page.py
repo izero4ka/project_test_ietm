@@ -4,6 +4,9 @@ from pages.base_page import BasePage
 
 class ViewPackageInfoPage(BasePage):
 
+    def back_btn(self):
+        return self.browser.find_element(By.XPATH, "//div[@class='v-toolbar__content']/a")
+
     def publish_data_count_text(self):
         return self.browser.find_element(By.XPATH, "//td[text()='Публикаций']/following-sibling::*")
 
@@ -34,3 +37,8 @@ class ViewPackageInfoPage(BasePage):
         self.objects_should_be_equal(self.provider_name_text().text, provider_name)
         self.objects_should_be_equal(self.kit_info_text().text, kit_info)
         self.objects_should_be_equal(self.system_version_text().text, system_version)
+
+    def click_on_back_btn(self):
+        from pages.main_page import MainPage
+        self.back_btn().click()
+        return MainPage()

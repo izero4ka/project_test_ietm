@@ -4,6 +4,9 @@ from pages.base_page import BasePage
 
 class PublishListPage(BasePage):
 
+
+    def title(self):
+        return self.browser.find_element(By.XPATH, "//div[contains(@class, 'v-toolbar__title')]")
     def manual_ietp1(self):
         return self.browser.find_element(By.CSS_SELECTOR, "div.col-md-3:nth-child(4)")
 

@@ -14,7 +14,7 @@ class MainPage(BasePage):
         return self
 
     def title(self):
-        return self.browser.find_element(By.CSS_SELECTOR, "div.v-toolbar__title.ms-md-5")
+        return self.browser.find_element(By.XPATH, "//div[@class='mt-12']//p[contains(@class, 'text-center')]")
 
     def check_title(self, title_text):
         self.objects_should_be_equal(self.title().text, title_text)

@@ -7,7 +7,7 @@ from helper.browser import Browser
 class BasePage(Browser):
 
     def back_btn(self):
-        return self.browser.find_element(By.CSS_SELECTOR, "div.v-toolbar__content>a")
+        return self.browser.find_element(By.XPATH, "//button[contains(@class, 'v-btn--tile theme--dark v-size--default primary')]")
 
     def click_on_back_btn(self):
         from pages.main_page import MainPage
