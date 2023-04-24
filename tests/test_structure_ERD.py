@@ -58,22 +58,20 @@ class TestStructureERD:
         manual_page.open_tabs()
         manual_page.check_inner_text_for_both_config()
 
-
     def test_search_view_pm_list(self, page):
         main_page = page.open_main_page()
         public_view_page = main_page.click_on_publish_menu_item()
         public_view_page.search(search_text="двигатель")
         public_view_page.manual_etpa2().is_displayed()
         manual_page = public_view_page.click_on_manual_etpa2()
-        manual_page.text_should_be(main_page.title(), expected_text='URALM-SFX44-ETPA2-00')
-
-
-#
-#     def check_configurations_select_6x6(self, page):
-#     для 6на6
-#
-#     def check_configurations_select_4x4_6x6(self, page):
-#     когда выбраны 4на4 и 6на6
-#
-#     def check_configurations_not_select(self, page):
-#     когда не выбрана ни одна
+        manual_page.text_should_be(manual_page.title(), expected_text='URALM-SFX44-ETPA2-00')
+        manual_page.click_on_open_all_tabs_btn()
+        manual_page.tab_should_be_opened(manual_page.radiator_tab())
+        manual_page.radiator_block_replacement_md().is_displayed()
+        md_040_page = manual_page.click_on_engine_device_description_md()
+        md_040_page.text_should_be(md_040_page.page_title(), 'Двигатель - Описание устройства')
+        manual_page = md_040_page.click_on_back_btn()
+        manual_page.text_should_be(manual_page.title(), expected_text='URALM-SFX44-ETPA2-00')
+        public_view_page = manual_page.click_on_back_btn()
+        public_view_page.text_should_be(public_view_page.title(),
+                                        'Выберите раздел эксплуатационной и ремонтной документации'.upper())
