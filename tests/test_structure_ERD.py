@@ -1,6 +1,9 @@
+import allure
 import pytest
 from pages.page import Page
 
+
+pytest_mark = [allure.parent_suite("ИЭТР"), allure.suite("Методика испытаний"), allure.sub_suite("ЭРД")]
 
 @pytest.fixture
 def page(browser):
@@ -9,14 +12,19 @@ def page(browser):
 
 class TestStructureERD:
 
+    @pytest.mark.xfail(reason="Инициализация билда")
+    def test_init_build(self, page):
+        main_page = page.open_main_page()
+
     def test_check_set_info_in_table(self, page):
         main_page = page.open_main_page()
+        main_page.check_title('Электронная эксплуатационная и ремонтная документация'.upper())
         view_package_info_page = main_page.click_on_set_info_btn()
         view_package_info_page.check_table_data(publish_data_count='4', model_count='103',
                                                 multimedia_objects_count='298', developer_id='3504-9',
                                                 provider_name='АО "Автомобильный завод "Урал"',
                                                 kit_info='с 10-11-2020 по 12-10-2021',
-                                                system_version='ПМ ИЭТР 4.4.0 / IETMWebServer 4.0.26')
+                                                system_version='ПМ ИЭТР 4.4.6 / IETMWebServer 4.0.26')
         main_page = view_package_info_page.click_on_back_btn()
         main_page.check_title('Электронная эксплуатационная и ремонтная документация'.upper())
 
