@@ -36,6 +36,7 @@ def browser(request):
         fp.set_preference("intl.accept_languages", user_language)
         print("\nЗапуск браузера Firefox для теста..")
         browser = webdriver.Firefox(firefox_profile=fp)
+        browser.set_window_size(1920, 1080)
     else:
         raise pytest.UsageError(
             "--browser_name должно быть Chrome или Firefox")
