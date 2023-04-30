@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
 from pages.base_page import BasePage
@@ -16,6 +17,7 @@ class MainPage(BasePage):
     def title(self):
         return self.browser.find_element(By.XPATH, "//div[@class='mt-12']//p[contains(@class, 'text-center')]")
 
+    @allure.step("Проверить Тайтл страницы")
     def check_title(self, title_text):
         self.objects_should_be_equal(self.title().text, title_text)
 
@@ -29,6 +31,7 @@ class MainPage(BasePage):
     def publish_list_menu_item(self):
         return self.browser.find_element(By.CSS_SELECTOR, "div.m-btn:nth-child(2)")
 
+    @allure.step("Нажать кнопку сведения о комплекте ЭД")
     def click_on_set_info_btn(self) -> ViewPackageInfoPage:
         self.set_info_btn().click()
         return ViewPackageInfoPage()

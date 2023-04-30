@@ -1,3 +1,4 @@
+import allure
 from selenium.webdriver.common.by import By
 from pages.base_page import BasePage
 
@@ -28,6 +29,7 @@ class ViewPackageInfoPage(BasePage):
     def system_version_text(self):
         return self.browser.find_element(By.XPATH, "//td[text()='Версия ЭСО']/following-sibling::*")
 
+    @allure.step("Проверка данных таблицы 'Общие сведения'")
     def check_table_data(self, publish_data_count, model_count, multimedia_objects_count, developer_id,
                          provider_name, kit_info, system_version):
         self.objects_should_be_equal(publish_data_count, self.publish_data_count_text().text)
@@ -38,6 +40,7 @@ class ViewPackageInfoPage(BasePage):
         self.objects_should_be_equal(self.kit_info_text().text, kit_info)
         self.objects_should_be_equal(self.system_version_text().text, system_version)
 
+    @allure.step("Нажать на кнопку назад")
     def click_on_back_btn(self):
         from pages.main_page import MainPage
         self.back_btn().click()
